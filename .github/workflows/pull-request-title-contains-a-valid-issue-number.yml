@@ -1,4 +1,4 @@
-name: Validate Issue Number in the Pull Request Title
+name: Pull Request Title Contains a Valid Issue Number
 
 on:
   pull_request:
@@ -12,12 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Pull Request Title
         uses: actions/checkout@v3
 
-      - name: Check Pull Request Title for Issue Number
+      - name: Validate Issue Number
         run: |
-          if [[ ! "${{ github.event.pull_request.title }}" =~ #[0-9]+ ]]; then
+          if [ "${{ github.event.pull_request.title }}" = \~#[0-9]+ \]; then
             echo "Error: Pull request title must include an issue number (e.g., #123)."
             exit 1
           fi
+          echo "Pull request title is valid."
