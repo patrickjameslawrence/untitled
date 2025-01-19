@@ -1,0 +1,7 @@
+.prettierignore
+public/
+.gitignore
+.husky/
+.next/
+node_modules/
+__tests__/__snapshots__
