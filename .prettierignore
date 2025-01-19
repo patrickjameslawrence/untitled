@@ -3,4 +3,5 @@ public/
 .gitignore
 .husky/
 .next/
-./node_modules/
+node_modules/
+__tests__/__snapshots__
